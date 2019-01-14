@@ -1,0 +1,32 @@
+{
+  "name": "div-puzzle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "watchall": "concurrently \"yarn serve\" \"yarn format\" \"yarn watchbuild\" \"yarn watchsass\"",
+    "dev": "concurrently  \"yarn serve\" \"yarn format\" \"yarn watchsass\"",
+    "serve": "browser-sync start --config bs-config.js",
+    "format": "onchange 'docs/' -- prettier --write {{changed}}",
+    "watchbuild": "webpack --watch",
+    "watchsass": "node-sass -r -w docs/scss/styles.scss docs/css/styles.css",
+    "autoprefix": "postcss --use autoprefixer --no-map docs/css/styles.css -d docs/css/"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "concurrently": "^4.0.1",
+    "eslint": "^5.9.0",
+    "onchange": "^5.1.0",
+    "prettier": "^1.15.1",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.14"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.4.3",
+    "jquery": "^3.3.1",
+    "node-sass": "^4.11.0",
+    "node-sass-import": "^2.0.1",
+    "yarn": "^1.12.3"
+  }
+}
